@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="th" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ธัญญลักษณ์ สายทอง - Academic & Public Health Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Prompt & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                            800: '#0c4a6e',
+                            900: '#0f172a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Prompt', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Prompt', 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: #334155;
+        }
+        .glass-header {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .custom-shadow {
+            box-shadow: 0 10px 30px -5px rgba(2, 132, 199, 0.08);
+        }
+        .custom-shadow-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .custom-shadow-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 35px -10px rgba(2, 132, 199, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navigation Bar -->
+    <header class="sticky top-0 z-50 glass-header border-b border-slate-200/60 transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Name -->
+                <a href="#" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 text-white flex items-center justify-center font-bold text-xl shadow-md group-hover:scale-105 transition-transform">
+                        TS
+                    </div>
+                    <div>
+                        <span class="text-lg font-bold text-slate-800 tracking-tight block leading-tight">ธัญญลักษณ์ สายทอง</span>
+                        <span class="text-xs text-brand-600 font-medium">Academic Portfolio</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-600">
+                    <a href="#about" class="hover:text-brand-600 transition-colors">เกี่ยวกับฉัน</a>
+                    <a href="#education" class="hover:text-brand-600 transition-colors">ประวัติการศึกษา</a>
+                    <a href="#experience" class="hover:text-brand-600 transition-colors">ประสบการณ์</a>
+                    <a href="#skills" class="hover:text-brand-600 transition-colors">ทักษะ</a>
+                    <a href="#github-guide" class="hover:text-brand-600 transition-colors flex items-center gap-1.5 text-slate-500">
+                        <i class="fa-brands fa-github"></i>
+                        <span>คู่มือ GitHub Pages</span>
+                    </a>
+                </nav>
+
+                <!-- Actions -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-brand-600 text-white text-sm font-medium hover:bg-brand-700 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0">
+                        <i class="fa-regular fa-envelope mr-1.5"></i> ติดต่อฉัน
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-600 hover:text-brand-600 focus:outline-none p-2 rounded-lg" aria-label="Toggle Navigation Menu">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile menu dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden border-t border-slate-100 bg-white/95 px-4 pt-3 pb-6 space-y-3 shadow-lg">
+            <a href="#about" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">เกี่ยวกับฉัน</a>
+            <a href="#education" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">ประวัติการศึกษา</a>
+            <a href="#experience" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">ประสบการณ์และจิตอาสา</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">ทักษะความสามารถ</a>
+            <a href="#github-guide" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">วิธีลง GitHub Pages</a>
+            <a href="#contact" class="block text-center mt-2 px-5 py-2.5 rounded-full bg-brand-600 text-white font-medium hover:bg-brand-700">ติดต่อฉัน</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-gradient-to-b from-brand-50/60 via-slate-50 to-slate-50">
+        <!-- Decorative Background Blur -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-brand-200/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-100/80 border border-brand-200 text-brand-800 text-xs sm:text-sm font-medium">
+                        <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                        พร้อมสำหรับการเรียนรู้และปฏิบัติงานสาธารณสุข
+                    </div>
+
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+                        สวัสดีค่ะ, ฉันชื่อ <br class="hidden sm:inline">
+                        <span class="bg-gradient-to-r from-brand-600 to-sky-500 bg-clip-text text-transparent">ธัญญลักษณ์ สายทอง</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-slate-600 font-normal leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Thanyalak Saithong — นักศึกษาสาธารณสุข มุ่งมั่นในการพัฒนาทักษะหมออนามัย การบริการผู้ป่วยในชุมชน และจิตอาสาเพื่อช่วยเหลือสังคม
+                    </p>
+
+                    <!-- Quick Info Badges -->
+                    <div class="flex flex-wrap gap-3 justify-center lg:justify-start text-xs sm:text-sm text-slate-600 pt-2">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-graduation-cap text-brand-500"></i> สบช. / สส.ขก.
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-hospital-user text-brand-500"></i> รพ.สต.หนองไผ่ (2025)
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 shadow-sm">
+                            <i class="fa-solid fa-location-dot text-brand-500"></i> จ.ร้อยเอ็ด
+                        </span>
+                    </div>
+
+                    <!-- Call To Actions -->
+                    <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#experience" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700 shadow-md hover:shadow-lg transition-all text-center">
+                            ดูประสบการณ์ทำงาน <i class="fa-solid fa-arrow-down ml-2 text-xs"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-7 py-3.5 rounded-xl bg-white text-slate-700 border border-slate-300 font-medium hover:bg-slate-100 hover:text-brand-600 transition-all text-center">
+                            ช่องทางติดต่อ
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image Card -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-sm">
+                        <!-- Card Border Glow -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-brand-400 to-sky-300 rounded-3xl blur opacity-30"></div>
+                        
+                        <div class="relative bg-white p-4 rounded-3xl border border-slate-100 shadow-xl text-center overflow-hidden">
+                            <!-- User Image Frame -->
+                            <div class="aspect-[4/5] rounded-2xl overflow-hidden bg-slate-100 relative group">
+                                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=800&auto=format&fit=crop" 
+                                     alt="ธัญญลักษณ์ สายทอง - รูปโปรไฟล์" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                     onerror="this.src='https://placehold.co/400x500/e0f2fe/0369a1?text=Thanyalak+S.'">
+                                
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent opacity-80"></div>
+                                <div class="absolute bottom-4 left-4 right-4 text-left text-white">
+                                    <p class="text-xs uppercase tracking-wider font-semibold text-brand-200">Public Health Student</p>
+                                    <h3 class="text-lg font-bold">ธัญญลักษณ์ สายทอง</h3>
+                                </div>
+                            </div>
+
+                            <!-- Bottom Floating Tag -->
+                            <div class="mt-4 p-3 bg-brand-50 rounded-xl border border-brand-100 text-left flex items-center space-x-3">
+                                <div class="w-10 h-10 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold shrink-0">
+                                    <i class="fa-solid fa-heart-pulse"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-semibold text-slate-800">มนุษยสัมพันธ์ดี & จิตอาสา</p>
+                                    <p class="text-xs text-slate-500">พร้อมปรับตัวและทำงานร่วมกับทุกคน</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white border-y border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-xs uppercase tracking-widest text-brand-600 font-bold mb-2">ABOUT ME</h2>
+                <p class="text-2xl sm:text-3xl font-bold text-slate-900">เกี่ยวกับฉัน</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 custom-shadow-hover">
+                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">การทำงานร่วมกับผู้อื่น</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        ฉันเป็นคนเข้ากับคนอื่นได้ดี มีมนุษยสัมพันธ์และทัศนคติที่ดี พร้อมรับฟัง ปรับตัว และทำงานร่วมกับทีมทุกช่วงวัยได้อย่างเป็นกันเอง
+                    </p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 custom-shadow-hover">
+                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-hands-holding-child"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">บริการผู้ป่วยในชุมชน</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        มีประสบการณ์ฝึกปฏิบัติงาน ณ รพ.สต.หนองไผ่ เข้าใจการบริการสุขภาพปฐมภูมิ ทักษะการสื่อสารกับคนไข้ และความสำคัญของหมออนามัย
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="p-6 rounded-2xl bg-slate-50 border border-slate-100 custom-shadow-hover">
+                    <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl font-bold mb-4">
+                        <i class="fa-solid fa-hands-praying"></i>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">จิตอาสาและสังคม</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed">
+                        ผ่านการเข้าร่วมโครงการ YOUTH LEADERS NEXTGEN, เรียนรู้วิธีการอำนวยความสะดวกผู้พิการทางสายตา และกิจกรรมเพื่ออนุรักษ์สิ่งแวดล้อม
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <h2 class="text-xs uppercase tracking-widest text-brand-600 font-bold mb-2">EDUCATION</h2>
+                <p class="text-2xl sm:text-3xl font-bold text-slate-900">ประวัติการศึกษา</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="max-w-3xl mx-auto relative border-l-2 border-brand-200 pl-6 sm:pl-10 space-y-10">
+
+                <!-- Higher Education Item -->
+                <div class="relative group">
+                    <!-- Circle Dot -->
+                    <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-brand-600 border-4 border-white shadow"></div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold">ระดับอุดมศึกษา (ปัจจุบัน)</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">วิทยาลัยการสาธารณสุขสิรินธร จังหวัดขอนแก่น</h3>
+                        <p class="text-sm text-slate-500 font-medium">Sirindhorn College of Public Health Khon Kaen (SCPHKK)</p>
+                        <p class="text-sm text-slate-600 mt-2">
+                            ศึกษาวิชาการสาธารณสุข วิทยาศาสตร์สุขภาพ การสร้างเสริมสุขภาพ และการดูแลผู้ป่วยในระดับปฐมภูมิ
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Senior High School Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-brand-400 border-4 border-white shadow"></div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">มัธยมศึกษาตอนปลาย</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">โรงเรียนศรีธวัชวิทยาลัย</h3>
+                        <p class="text-sm text-slate-500 font-medium">Srithawatwittayalai School</p>
+                        <p class="text-sm text-slate-600 mt-2">
+                            แผนการเรียนวิทยาศาสตร์-คณิตศาสตร์ / กิจกรรมสถิติต่างๆ ในโรงเรียน
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Junior High School Item -->
+                <div class="relative group">
+                    <div class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-6 h-6 rounded-full bg-slate-300 border-4 border-white shadow"></div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 shadow-sm hover:shadow-md transition-shadow">
+                        <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                            <span class="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs font-semibold">มัธยมศึกษาตอนต้น</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800">โรงเรียนธวัชบุรีวิทยาคม</h3>
+                        <p class="text-sm text-slate-500 font-medium">Thawatburiwittayakhom School</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Work & Volunteer Experience -->
+    <section id="experience" class="py-16 bg-white border-y border-slate-200/60">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <h2 class="text-xs uppercase tracking-widest text-brand-600 font-bold mb-2">EXPERIENCE & VOLUNTEER</h2>
+                <p class="text-2xl sm:text-3xl font-bold text-slate-900">ประสบการณ์และจิตอาสา</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Experience Item 1 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col justify-between custom-shadow-hover">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-bold">2025</span>
+                            <span class="text-xs font-medium text-slate-500 flex items-center gap-1">
+                                <i class="fa-solid fa-location-dot text-brand-500"></i> ต.หนองไผ่ อ.ธวัชบุรี
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">
+                            ฝึกปฏิบัติงาน ณ โรงพยาบาลส่งเสริมสุขภาพตำบลหนองไผ่ (รพ.สต.)
+                        </h3>
+                        <p class="text-sm text-brand-600 font-medium mb-4">การฝึกปฏิบัติงานด้านสาธารณสุขปฐมภูมิ</p>
+                        
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-500 mt-1 shrink-0"></i>
+                                <span>เรียนรู้บทบาทและกระบวนการทำงานของการเป็นหมออนามัยในการดูแลชุมชน</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-500 mt-1 shrink-0"></i>
+                                <span>พัฒนาทักษะและความสำคัญของการให้บริการ ซักประวัติ และต้อนรับผู้ป่วยในระดับท้องถิ่น</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-500 mt-1 shrink-0"></i>
+                                <span>เรียนรู้ระบบคัดกรองเบื้องต้นและการประสานงานสุขภาพชุมชน</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/80 flex flex-wrap gap-2">
+                        <span class="text-xs bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-600">หมออนามัย</span>
+                        <span class="text-xs bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-600">การบริการผู้ป่วย</span>
+                        <span class="text-xs bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-600">ชุมชน</span>
+                    </div>
+                </div>
+
+                <!-- Experience Item 2 -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8 flex flex-col justify-between custom-shadow-hover">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-brand-600 text-white text-xs font-bold">2024</span>
+                            <span class="text-xs font-medium text-slate-500 flex items-center gap-1">
+                                <i class="fa-solid fa-ribbon text-brand-500"></i> Studio Shodwe
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-800 mb-2">
+                            โครงการ YOUTH LEADERS NEXTGEN
+                        </h3>
+                        <p class="text-sm text-brand-600 font-medium mb-4">โครงการผู้นำเยาวชนรุ่นใหม่และจิตอาสาเพื่อสังคม</p>
+                        
+                        <ul class="space-y-2 text-sm text-slate-600">
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-500 mt-1 shrink-0"></i>
+                                <span>เรียนรู้วิธีการดูแลและอำนวยความสะดวกให้ผู้พิการทางสายตา ณ มูลนิธิธรรมิกชนเพื่อคนตาบอดในประเทศไทย</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-500 mt-1 shrink-0"></i>
+                                <span>เข้าร่วมโครงการปลูกต้นไม้เฉลิมพระเกียรติ เพื่อเพิ่มพื้นที่สีเขียวแก่ชุมชน</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i class="fa-solid fa-check text-brand-500 mt-1 shrink-0"></i>
+                                <span>พัฒนาภาวะผู้นำและการทำงานเป็นทีมร่วมกับเพื่อนเยาวชนจากหลากหลายสถาบัน</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-slate-200/80 flex flex-wrap gap-2">
+                        <span class="text-xs bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-600">จิตอาสา</span>
+                        <span class="text-xs bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-600">ดูแลผู้พิการทางสายตา</span>
+                        <span class="text-xs bg-white px-2.5 py-1 rounded-md border border-slate-200 text-slate-600">ปลูกต้นไม้</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-16 bg-slate-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <h2 class="text-xs uppercase tracking-widest text-brand-600 font-bold mb-2">SKILLS & COMPETENCIES</h2>
+                <p class="text-2xl sm:text-3xl font-bold text-slate-900">ทักษะและความสามารถ</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+                
+                <!-- Main Core Skills -->
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-slate-800 border-b border-slate-200 pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-star text-brand-500"></i> ทักษะหลัก (Core Competencies)
+                    </h3>
+
+                    <!-- Skill item -->
+                    <div>
+                        <div class="flex justify-between text-sm font-medium text-slate-700 mb-1">
+                            <span>การทำงานร่วมกับคนอื่น (Teamwork & Collaboration)</span>
+                            <span class="text-brand-600 font-bold">95%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-500 rounded-full" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill item -->
+                    <div>
+                        <div class="flex justify-between text-sm font-medium text-slate-700 mb-1">
+                            <span>การแสดง / สื่อสารการนำเสนอ (Public Speaking & Performing)</span>
+                            <span class="text-brand-600 font-bold">90%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-500 rounded-full" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill item -->
+                    <div>
+                        <div class="flex justify-between text-sm font-medium text-slate-700 mb-1">
+                            <span>การบริการผู้ป่วยและงานสาธารณสุขชุมชน</span>
+                            <span class="text-brand-600 font-bold">88%</span>
+                        </div>
+                        <div class="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden">
+                            <div class="h-full bg-brand-500 rounded-full" style="width: 88%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills & Personal Strengths -->
+                <div class="space-y-6">
+                    <h3 class="text-lg font-bold text-slate-800 border-b border-slate-200 pb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-thumbs-up text-brand-500"></i> คุณลักษณะเด่น (Key Traits)
+                    </h3>
+
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="p-3.5 bg-white rounded-xl border border-slate-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center font-bold text-sm shrink-0">
+                                <i class="fa-solid fa-face-smile"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-700">มนุษยสัมพันธ์ดีเยี่ยม</span>
+                        </div>
+
+                        <div class="p-3.5 bg-white rounded-xl border border-slate-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center font-bold text-sm shrink-0">
+                                <i class="fa-solid fa-ear-listen"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-700">การรับฟังอย่างใส่ใจ</span>
+                        </div>
+
+                        <div class="p-3.5 bg-white rounded-xl border border-slate-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center font-bold text-sm shrink-0">
+                                <i class="fa-solid fa-hands-holding"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-700">จิตอาสาและบริการ</span>
+                        </div>
+
+                        <div class="p-3.5 bg-white rounded-xl border border-slate-200 flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-brand-50 text-brand-600 flex items-center justify-center font-bold text-sm shrink-0">
+                                <i class="fa-solid fa-lightbulb"></i>
+                            </div>
+                            <span class="text-sm font-medium text-slate-700">พร้อมเรียนรู้สิ่งใหม่</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white border-t border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <h2 class="text-xs uppercase tracking-widest text-brand-600 font-bold mb-2">GET IN TOUCH</h2>
+                <p class="text-2xl sm:text-3xl font-bold text-slate-900">ช่องทางการติดต่อ</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-3 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Contact Info Cards -->
+                <div class="lg:col-span-5 space-y-4">
+                    
+                    <!-- Phone -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium uppercase">เบอร์โทรศัพท์</p>
+                            <a href="tel:+66983984964" class="text-base font-bold text-slate-800 hover:text-brand-600 transition-colors">
+                                (+66) 09-8398-4964
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <div class="overflow-hidden">
+                            <p class="text-xs text-slate-500 font-medium uppercase">อีเมลวิทยาลัย</p>
+                            <a href="mailto:69202302043@scphkk.ac.th" class="text-sm sm:text-base font-bold text-slate-800 hover:text-brand-600 transition-colors block truncate">
+                                69202302043@scphkk.ac.th
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Address -->
+                    <div class="p-5 rounded-2xl bg-slate-50 border border-slate-200 flex items-center space-x-4">
+                        <div class="w-12 h-12 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 font-medium uppercase">ที่อยู่ตามภูมิลำเนา</p>
+                            <p class="text-sm font-bold text-slate-800">
+                                34 หมู่ 3 ตำบลหนองไผ่ อำเภอธวัชบุรี จังหวัดร้อยเอ็ด
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Contact Form Mockup -->
+                <div class="lg:col-span-7 bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-8">
+                    <h3 class="text-xl font-bold text-slate-800 mb-4">ส่งข้อความถึงฉัน</h3>
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4">
+                        <div>
+                            <label for="sender-name" class="block text-xs font-semibold text-slate-700 uppercase mb-1">ชื่อผู้ติดต่อ</label>
+                            <input type="text" id="sender-name" required placeholder="ชื่อ - นามสกุล ของท่าน" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white text-sm">
+                        </div>
+                        <div>
+                            <label for="sender-email" class="block text-xs font-semibold text-slate-700 uppercase mb-1">อีเมลติดต่อกลับ</label>
+                            <input type="email" id="sender-email" required placeholder="example@email.com" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white text-sm">
+                        </div>
+                        <div>
+                            <label for="sender-message" class="block text-xs font-semibold text-slate-700 uppercase mb-1">ข้อความ</label>
+                            <textarea id="sender-message" rows="4" required placeholder="พิมพ์ข้อความที่ต้องการติดต่อที่นี่..." class="w-full px-4 py-2.5 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-500 focus:outline-none bg-white text-sm resize-none"></textarea>
+                        </div>
+                        <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 text-white font-medium hover:bg-brand-700 transition-colors shadow-sm">
+                            <i class="fa-solid fa-paper-plane mr-2"></i> ส่งข้อความ
+                        </button>
+                    </form>
+
+                    <!-- Success Alert Toast Box -->
+                    <div id="form-toast" class="hidden mt-4 p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center justify-between">
+                        <span class="flex items-center gap-2">
+                            <i class="fa-solid fa-circle-check text-emerald-600"></i>
+                            ข้อความของคุณถูกส่งเรียบร้อยแล้ว!
+                        </span>
+                        <button type="button" onclick="closeToast()" class="text-emerald-700 hover:text-emerald-900 text-xs">ปิด</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Pages Guide Section -->
+    <section id="github-guide" class="py-16 bg-slate-900 text-slate-100">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-900 text-brand-300 text-xs font-semibold mb-3">
+                    <i class="fa-brands fa-github"></i> GITHUB PAGES
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-bold">วิธีอัปโหลดเว็บไซต์ขึ้น GitHub Pages</h2>
+                <p class="text-slate-400 text-sm mt-2">ขั้นตอนการเปิดใช้งานเว็บไซต์นี้นำไปใช้ออนไลนได้อย่างฟรีและง่ายดาย</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-slate-300 text-sm">
+                <!-- Step 1 -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold mb-4">1</div>
+                    <h3 class="text-base font-bold text-white mb-2">บันทึกไฟล์เป็น index.html</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        เซฟไฟล์โค้ดทั้งหมดนี้ไว้ในชื่อไฟล์ <code class="bg-slate-900 text-brand-300 px-1.5 py-0.5 rounded text-xs">index.html</code> ไว้ในคอมพิวเตอร์ของคุณ
+                    </p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold mb-4">2</div>
+                    <h3 class="text-base font-bold text-white mb-2">สร้าง Repository บน GitHub</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        เข้าไปที่ <a href="https://github.com" target="_blank" class="text-brand-400 hover:underline">GitHub.com</a> สร้าง Repository ใหม่ แล้วตั้งชื่อ (เช่น <code class="bg-slate-900 text-brand-300 px-1.5 py-0.5 rounded text-xs">portfolio</code>) ตั้งเป็น Public และอัปโหลดไฟล์ <code class="bg-slate-900 text-brand-300 px-1.5 py-0.5 rounded text-xs">index.html</code> ขึ้นไป
+                    </p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-slate-800/80 p-6 rounded-2xl border border-slate-700/60">
+                    <div class="w-8 h-8 rounded-lg bg-brand-600 text-white flex items-center justify-center font-bold mb-4">3</div>
+                    <h3 class="text-base font-bold text-white mb-2">เปิดใช้งาน GitHub Pages</h3>
+                    <p class="text-slate-400 leading-relaxed">
+                        ไปที่เมนู <b class="text-slate-200">Settings</b> &gt; <b class="text-slate-200">Pages</b> เลือก Branch เป็น <code class="bg-slate-900 text-brand-300 px-1.5 py-0.5 rounded text-xs">main</code> แล้วกด Save รอเพียง 1-2 นาที คุณจะได้ลิงก์เว็บไซต์ออนไลน์ทันที!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-500 text-xs py-8 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 text-center sm:flex sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+            <p>© 2026 ธัญญลักษณ์ สายทอง (Thanyalak Saithong). All Rights Reserved.</p>
+            <p class="text-slate-400">ออกแบบในสไตล์ Minimal Modern ด้วย Tailwind CSS</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Toggle Mobile Menu
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Form Submit Handler
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const toast = document.getElementById('form-toast');
+            toast.classList.remove('hidden');
+            document.getElementById('contact-form').reset();
+        }
+
+        function closeToast() {
+            document.getElementById('form-toast').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
